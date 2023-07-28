@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--当状态为false  显示color为灰色-->
+    <item android:state_enabled="false" android:drawable="@drawable/shape_button_round_corner_gray"/>
+    <!--当状态为true 显示color为蓝色-->
+    <item android:state_enabled="true" android:drawable="@drawable/shape_button_round_corner_blue"/>
+</selector>

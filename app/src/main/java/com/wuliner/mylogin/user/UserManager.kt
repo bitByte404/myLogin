@@ -98,6 +98,14 @@ class UserManager private constructor(private val context: WeakReference<Context
         }
     }
 
+    /**根据用户名获取用户的所有信息*/
+    fun getUserInfo(name: String): User? {
+        users.forEach {
+            if (it.name == name) return it
+        }
+        return null
+    }
+
 
 
 }

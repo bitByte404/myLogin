@@ -37,7 +37,7 @@ class UserInputView(context: Context, attrs: AttributeSet?): FrameLayout(context
 
         //判断输入的是密码还是正常的
         if (inputType == 1) {
-
+            binding.inputTextView.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
         typedArray.recycle()

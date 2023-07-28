@@ -56,33 +56,78 @@
 
     <com.wuliner.mylogin.view.views.UserInputView
 
-        android:id="@+id/userInputView"
+        android:id="@+id/nameInputView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        app:error_title="检查用户名是否正确"
-        app:placeholder="请输入用户名"
-        app:title="用户名"
-        app:input_type="normal"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="22dp"
+        app:error_title="检查用户名是否正确"
+        app:input_type="normal"
         app:layout_constraintEnd_toEndOf="@+id/roundBgView"
         app:layout_constraintStart_toStartOf="@+id/roundBgView"
-        app:layout_constraintTop_toTopOf="@+id/roundBgView" />
+        app:layout_constraintTop_toTopOf="@+id/roundBgView"
+        app:placeholder="请输入用户名"
+        app:title="用户名" />
 
     <com.wuliner.mylogin.view.views.UserInputView
 
+        android:id="@+id/passwordInputView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="22dp"
-        app:title="密码"
-        app:placeholder="请输入密码"
         app:error_title="请检查密码是否正确"
         app:input_type="password"
         app:layout_constraintEnd_toEndOf="@+id/roundBgView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/roundBgView"
-        app:layout_constraintTop_toBottomOf="@+id/userInputView" />
+        app:layout_constraintTop_toBottomOf="@+id/nameInputView"
+        app:placeholder="请输入密码"
+        app:title="密码" />
+
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/select_login_btn"
+        android:gravity="center"
+        android:text="@string/login_title"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/roundBgView"
+        app:layout_constraintEnd_toEndOf="@+id/roundBgView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/roundBgView"
+        app:layout_constraintTop_toBottomOf="@+id/roundBgView" />
+
+    <TextView
+        android:id="@+id/defaultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="还没有注册"
+        android:textColor="@color/text_gray"
+        app:layout_constraintEnd_toStartOf="@+id/registerTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="马上注册"
+        android:textColor="@color/light_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/defaultTextView"
+        app:layout_constraintTop_toTopOf="@+id/defaultTextView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
