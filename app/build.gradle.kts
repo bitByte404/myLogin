@@ -7,6 +7,10 @@ android {
     namespace = "com.wuliner.mylogin"
     compileSdk = 33
 
+    viewBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.wuliner.mylogin"
         minSdk = 24

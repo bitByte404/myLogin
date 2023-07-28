@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">myLogin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="welcome_title">欢迎回家</string>
+    <string name="welcome_register">欢迎注册</string>
+    <string name="register_subtitle">让我们一起努力 这个夏天学好安卓开发</string>
+    <string name="login_title">登录</string>
+    <string name="register_title">注册</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

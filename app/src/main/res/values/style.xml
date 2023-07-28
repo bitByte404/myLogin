@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!--  统一管理所有标题的样式-->
+        <style name="TextTitleStyle">
+            <item name="android:textSize">36sp</item>
+            <item name="android:textColor">@color/text_white</item>
+            <item name="android:textStyle">bold</item>
+        </style>
+
+        <!--   子标题样式-->
+        <style name="SubtitleTextStyle">
+            <item name="android:textSize">10sp</item>
+            <item name="android:textColor">@color/text_gray</item>
+        </style>
+
+        <!-- 提示用户操作的文本样式   -->
+        <style name="AlertTextStyle">
+            <item name="android:textColor">@color/light_blue</item>
+            <item name="android:textSize">18sp</item>
+        </style>
+</resources>

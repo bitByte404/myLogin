@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UserInputView">
+        <!--标题-->
+        <attr name="title" format="string|reference"/>
+        <!--默认提示信息-->
+        <attr name="placeholder" format="string|reference"/>
+        <!--错误时提示信息-->
+        <attr name="error_title" format="string|reference"/>
+        <!--设置类型是是否为密码输入-->
+        <attr name="input_type" format="integer">
+            <enum name="password" value="1"/>
+            <enum name="normal" value="2"/>
+        </attr>
+
+    </declare-styleable>
+</resources>
