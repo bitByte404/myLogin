@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.PinRegistFragment">
+    android:background="@color/dark_blue"
+    tools:context=".view.fragment.PinLoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/titleTextView"
+        style="@style/TextTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/welcome_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/subtitileTextView"
+        style="@style/SubtitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_subtitle"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <View
+        android:id="@+id/roundBgView"
+        android:layout_width="0dp"
+        android:layout_height="310dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/shape_round_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitileTextView" />
+
+    <com.wuliner.mylogin.view.views.UserInputView
+
+        android:id="@+id/nameInputView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="22dp"
+        app:error_title="检查用户名是否正确"
+        app:input_type="normal"
+        app:layout_constraintEnd_toEndOf="@+id/roundBgView"
+        app:layout_constraintStart_toStartOf="@+id/roundBgView"
+        app:layout_constraintTop_toTopOf="@+id/roundBgView"
+        app:placeholder="请输入用户名"
+        app:title="用户名" />
+
+    <com.wuliner.mylogin.view.views.UserInputView
+
+        android:id="@+id/passwordInputView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="22dp"
+        app:error_title="请检查密码是否正确"
+        app:input_type="password"
+        app:layout_constraintEnd_toEndOf="@+id/roundBgView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roundBgView"
+        app:layout_constraintTop_toBottomOf="@+id/nameInputView"
+        app:placeholder="请输入密码"
+        app:title="密码" />
+
+    <com.wuliner.mylogin.view.views.UserInputView
+
+        android:id="@+id/confirmPasswordTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        app:error_title="请检查密码是否正确"
+        app:input_type="password"
+        app:layout_constraintEnd_toEndOf="@+id/roundBgView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roundBgView"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputView"
+        app:placeholder="请确认密码"
+        app:title="确认密码" />
+
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/select_login_btn"
+        android:gravity="center"
+        android:text="@string/register_title"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/roundBgView"
+        app:layout_constraintEnd_toEndOf="@+id/roundBgView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/roundBgView"
+        app:layout_constraintTop_toBottomOf="@+id/roundBgView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

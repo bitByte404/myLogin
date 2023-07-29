@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.wuliner.mylogin.R
 import com.wuliner.mylogin.databinding.FragmentPinLoginBinding
+import com.wuliner.mylogin.tool.AnimTools
+import com.wuliner.mylogin.tool.navigateTo
+import com.wuliner.mylogin.user.PasswordType
 import com.wuliner.mylogin.view.views.ButtonState
+import com.wuliner.mylogin.view.views.LoginState
 import com.wuliner.mylogin.view.views.SharedViewModel
 
 class PinLoginFragment : Fragment() {
@@ -33,6 +37,18 @@ class PinLoginFragment : Fragment() {
         viewModel.loginBtnIsEnabled.observe(viewLifecycleOwner) {
             binding.button.isEnabled = it
         }
+        //监听登录状态改变
+        viewModel.loginState.observe(viewLifecycleOwner) {
+            when (it) {
+                LoginState.Success -> {}
+                LoginState.Failure -> {
+                    binding.nameInputView.showError()
+                    binding.passwordInputView.showError()
+                    AnimTools.startSwingAnim(binding.button, time = 100)
+                }
+                LoginState.Default -> {}
+            }
+        }
 
         //监听用户名的输入
         binding.nameInputView.textChangeListener = { userInputView, text ->
@@ -49,6 +65,14 @@ class PinLoginFragment : Fragment() {
             } else {
                 viewModel.changeLoginButtonState(ButtonState.UnEnabled)
             }
+        }
+
+        binding.registerTextView.setOnClickListener {
+            navigateTo(PinRegistFragment())
+        }
+
+        binding.button.setOnClickListener {
+            viewModel.login(binding.nameInputView.text, binding.passwordInputView.text, PasswordType.Pin)
         }
 
         return binding.root

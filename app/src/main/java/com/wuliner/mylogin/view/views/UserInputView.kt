@@ -57,4 +57,25 @@ class UserInputView(context: Context, attrs: AttributeSet?): FrameLayout(context
 
         typedArray.recycle()
     }
+
+    /**切换到错误状态*/
+    fun showError() {
+        showState(false)
+        postDelayed({
+            showState(true)
+            binding.inputTextView.text.clear()
+        }, 500)
+    }
+
+    fun showState(isNormal: Boolean) {
+        if (isNormal) {
+            binding.titleTextView.text = title
+            binding.inputTextView.setTextColor(resources.getColor(R.color.text_gray, null))
+            binding.titleTextView.setTextColor(resources.getColor(R.color.text_gray, null))
+        } else {
+            binding.titleTextView.text = errorTitle
+            binding.inputTextView.setTextColor(resources.getColor(R.color.light_blue, null))
+            binding.titleTextView.setTextColor(resources.getColor(R.color.light_blue, null))
+        }
+    }
 }
