@@ -1,5 +1,6 @@
 package com.wuliner.mylogin.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.wuliner.mylogin.databinding.FragmentPinLoginBinding
 import com.wuliner.mylogin.tool.AnimTools
 import com.wuliner.mylogin.tool.navigateTo
 import com.wuliner.mylogin.user.PasswordType
+import com.wuliner.mylogin.view.activity.RootActivity
 import com.wuliner.mylogin.view.views.ButtonState
 import com.wuliner.mylogin.view.views.LoginState
 import com.wuliner.mylogin.view.views.SharedViewModel
@@ -40,7 +42,7 @@ class PinLoginFragment : Fragment() {
         //监听登录状态改变
         viewModel.loginState.observe(viewLifecycleOwner) {
             when (it) {
-                LoginState.Success -> {}
+                LoginState.Success -> { startActivity(Intent(requireActivity(), RootActivity::class.java)) }
                 LoginState.Failure -> {
                     binding.nameInputView.showError()
                     binding.passwordInputView.showError()
