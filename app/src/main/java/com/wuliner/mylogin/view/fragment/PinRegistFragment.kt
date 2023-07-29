@@ -52,10 +52,10 @@ class PinRegistFragment : Fragment() {
         }
         //监听密码的输入
         binding.passwordInputView.textChangeListener = { userInputView, text ->
+            password = text
             if (text.isNotEmpty() && binding.nameInputView.text.isNotEmpty() && binding.confirmPasswordTextView.text.isNotEmpty()) {
                 viewModel.changeRegisterButtonState(ButtonState.Enabled)
                 Log.v("test", "password $password text: $text")
-                password = text
             } else {
                 viewModel.changeRegisterButtonState(ButtonState.UnEnabled)
             }
@@ -79,6 +79,7 @@ class PinRegistFragment : Fragment() {
     }
 
     private fun checkPassword() {
+        Log.v("test", "password=$password confirmPassword=$confirmPassword" )
         if (password == confirmPassword) {
             viewModel.user.name = name
             viewModel.user.pin = password

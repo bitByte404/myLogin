@@ -16,7 +16,7 @@ class DotView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     private var mSpace = dp2px(40)
     private var mCenterRadius = 0f
     private var mStart_Cx = 0f//记录第一个点的起始坐标点
-    private val mStart_Cy = 0f//记录第一个点的起始坐标点
+    private var mStart_Cy = 0f//记录第一个点的起始坐标点
     private val mDotPaint: Paint by lazy {
         Paint().apply {
             isAntiAlias = true
@@ -44,6 +44,7 @@ class DotView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
             MeasureSpec.EXACTLY -> heightSize
             else -> 6*mRadius + 4*mSpace
         }
+        setMeasuredDimension(mWidth, mHeight)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -53,7 +54,7 @@ class DotView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         mCenterRadius = mRadius.toFloat() / 6
 
         mStart_Cx = (width - min(height, width))/2 + mSpace + mRadius.toFloat()
-        mStart_Cx = (height - min(height, width))/2 + mSpace + mRadius.toFloat()
+        mStart_Cy = (height - min(height, width))/2 + mSpace + mRadius.toFloat()
     }
 
     override fun onDraw(canvas: Canvas?) {
