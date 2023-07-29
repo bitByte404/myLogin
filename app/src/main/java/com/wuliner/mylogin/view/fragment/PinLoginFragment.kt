@@ -5,25 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.wuliner.mylogin.R
+import com.wuliner.mylogin.databinding.FragmentPinLoginBinding
+import com.wuliner.mylogin.view.views.ButtonState
+import com.wuliner.mylogin.view.views.SharedViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PinLoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PinLoginFragment : Fragment() {
+    private lateinit var viewModel: SharedViewModel
+    private lateinit var binding: FragmentPinLoginBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pin_login, container, false)
+        binding = FragmentPinLoginBinding.inflate(inflater, container, false)
+
+        //监听跳转到图案解锁文本是否显示状态
+        viewModel.showChangeToPatternLogin.observe(viewLifecycleOwner) {
+            binding.swithToPatternTextView.visibility = if (it) View.VISIBLE else View.INVISIBLE
+        }
+        //监听登录是否能点击
+        viewModel.loginBtnIsEnabled.observe(viewLifecycleOwner) {
+            binding.button.isEnabled = it
+        }
+
+        //监听用户名的输入
+        binding.nameInputView.textChangeListener = { userInputView, text ->
+            if (text.isNotEmpty() && binding.passwordInputView.text.isNotEmpty()) {
+                viewModel.changeLoginButtonState(ButtonState.Enabled)
+            } else {
+                viewModel.changeLoginButtonState(ButtonState.UnEnabled)
+            }
+        }
+        //监听密码的输入
+        binding.passwordInputView.textChangeListener = { userInputView, text ->
+            if (text.isNotEmpty() && binding.nameInputView.text.isNotEmpty()) {
+                viewModel.changeLoginButtonState(ButtonState.Enabled)
+            } else {
+                viewModel.changeLoginButtonState(ButtonState.UnEnabled)
+            }
+        }
+
+        return binding.root
     }
 
 }
